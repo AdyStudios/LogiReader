@@ -1,0 +1,26 @@
+body{
+  background-color: grey;
+}
+
+.App{
+}
+
+.SectionTitle{
+  margin-bottom:0pt;
+  margin-top:20pt;
+  background-color: rgb(255, 255, 255);
+}
+
+.SectionContent{
+  margin-top:5pt;
+  margin-left: 10pt;
+}
+
+div.Horizontal{
+  margin-top: 0pt !important;
+  margin-bottom: 0pt !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

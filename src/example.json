@@ -1,0 +1,35 @@
+{"age":10,
+
+"campType":"fullDay",
+
+"groupSatisfaction":4,
+"likeContent":4,
+"likedTheMost":"cyberjump",
+"trainerSatisfaction":4,
+"trainerQuality":{
+    "friendly":5,
+    "clear":5,
+    "helpful":5,
+    "entertaining":5,
+    "cool":5
+},
+"trainerAttributes":{
+    "attributes":{
+    "1":"cool",
+    "2":"smart",
+    "3":"happy"}
+},
+"animatorsSatisfaction":4,
+"campLeadAttributes":{
+    "attributes":{
+    "1":"patient",
+    "2":"nice",
+    "3":"cool"}
+},
+"favoriteLeasureActivity":"cyberjump",
+"knowMyLogiscool":"yesUsed",
+"openText":{
+"likeTheMost":"kedvesek ",
+"myBiggestAchievement":"uj dolgokat  tanultam",
+"aboutLogiscool":"jó hely"}
+}
