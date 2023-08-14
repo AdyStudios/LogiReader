@@ -1,4 +1,4 @@
-#LogiReader
+# LogiReader
 An intuitive platform for reading Logiscool CRM Surveys.
 
 ## How
