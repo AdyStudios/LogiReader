@@ -2,59 +2,45 @@ import './App.css';
 const json = require('./example.json')
 
 
-function App() {
-  var ageSec = json.age !== undefined ? 
-    <div className='Section'>
-      <p className = 'SectionTitle'> Age </p>
-      <p className = 'SectionContent'>{json.age}</p>
-    </div>
-    : undefined;
-  var campTypeSec = json.campType !== undefined ?
-    <div className='Section'>
-      <p className = 'SectionTitle'> Camp Type </p>
-      <p className = 'SectionContent'>{json.campType}</p>
-    </div>
-    : undefined;
-  var likethemostSec = json.likedTheMost !== undefined ?
-    <div className='Section'>
-      <p className = 'SectionTitle'> Liked the most </p>
-      <p className = 'SectionContent'>{json.likedTheMost}</p>
-    </div>
-    : undefined;
-  var trainerClear = json.trainerQuality !== undefined ?
-    <div className='Section'>
-      <p className = 'SectionTitle'> Trainer Quality </p>
-      <div className='Horizontal'>
-        <p className = 'PointsTitle'>Clear</p>
-        <p className = 'PointsValue'>{json.trainerQuality.clear}</p>
+function GenerateSectionDefualt(title, content) {
+  if(content == undefined) return;  
+  return (
+      <div className='Section'>
+        <p className = 'SectionTitle'> {title} </p>
+        <p className = 'SectionContent'>{content}</p>
       </div>
-    </div>
-    : undefined;
-  var trainerFriendly = json.trainerQuality !== undefined ?
-    <div className='Section'>
-      <div className='Horizontal'>
-        <p className = 'PointsTitle'>Friendly</p>
-        <p className = 'PointsValue'>{json.trainerQuality.friendly}</p>
-      </div>
-    </div>
-    : undefined;
-  var trainerHelpful = json.trainerQuality !== undefined ? 
-    <div className='Section'>
-      <div className='Horizontal'>
-        <p className = 'PointsTitle'>Helpful</p>
-        <p className = 'PointsValue'>{json.trainerQuality.helpful}</p>
-      </div>
-    </div>
-    : undefined;
-  var trainerHelpful = json.trainerQuality !== undefined ?
-    <div className='Section'>
-      <div className='Horizontal'>
-        <p className = 'PointsTitle'>Helpful</p>
-        <p className = 'PointsValue'>{json.trainerQuality.helpful}</p>
-      </div>
-    </div>
-    : undefined;
+    );
+}
 
+function createTrainerQualities(value) {
+  return json.trainerQuality !== undefined ? (
+      <div className='Horizontal'>
+        <p className='PointsTitle'>{value}</p>
+        <p className='PointsValue'>{json.trainerQuality[value.toLowerCase()]}</p>
+    </div>
+  ) : undefined;
+}
+
+function App() {
+
+  var ageSec = GenerateSectionDefualt('Age', json.age);
+
+  var campTypeSec = GenerateSectionDefualt('Camp Type', json.campType);
+  var likethemostSec = GenerateSectionDefualt('Liked the most', json.likedTheMost);
+
+  var trainerFriendly = createTrainerQualities('Friendly');
+  var trainerClear = createTrainerQualities('Clear');
+  var trainerHelpful = createTrainerQualities('Helpful');
+  var trainerEntertaining = createTrainerQualities('Entertaining');
+  var trainerCool = createTrainerQualities('Cool');
+
+  var trainerOne = 
+  <div className = 'Section'>
+    <p className = 'SectionTitle'>Trainer Attributes</p>
+    <p className='SectionContent'>{json.trainerAttributes.attributes[1]}</p>
+    <p className='SectionContent'>{json.trainerAttributes.attributes[2]}</p>
+    <p className='SectionContent'>{json.trainerAttributes.attributes[3]}</p>
+  </div>;
 
 
   return(
@@ -62,9 +48,15 @@ function App() {
         {ageSec}
         {campTypeSec}
         {likethemostSec}
-        {trainerClear}
-        {trainerFriendly}
-        {trainerHelpful}  
+        <div className='Section'>
+          <p className='SectionTitle'>Trainer Qualities</p>
+            {trainerClear}
+            {trainerFriendly}
+            {trainerHelpful}
+            {trainerEntertaining}
+            {trainerCool}
+        </div>
+        {trainerOne}
   </div>
 );
 }

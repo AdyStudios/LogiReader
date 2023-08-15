@@ -1,11 +1,12 @@
 body{
   background-color: grey;
-}
-
-.App{
+  font-family: "CustomTFont";
 }
 
 .SectionTitle{
+  font-family: "CustomBFont";
+  font-weight: bold;
+  font-size: 13pt;
   margin-bottom:0pt;
   margin-top:20pt;
   background-color: rgb(255, 255, 255);
@@ -23,4 +24,14 @@ div.Horizontal{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+@font-face {
+  font-family: "CustomTFont";
+  src: url("../fonts/Titillium-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "CustomBFont";
+  src: url("../fonts/titillium-bold.ttf") format("opentype");
 }
