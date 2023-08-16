@@ -18,3 +18,5 @@ This project was started in 23_08 to make survey reading easier, and more fun, o
 - Cool extras
 - Theme customization
 - Color coding
+### Suggest Features by opening a new issue!
+And make sure to tag it as enhancement!
