@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/AdyStudios/LogiReader/blob/main/LICENSE)
 
 
-![logirobsmall](https://github.com/AdyStudios/LogiReader/assets/74962285/b5996004-88a5-4188-8c96-dfbd18381587)
+![logirobsmall](https://github.com/AdyStudios/LogiReader/assets/74962285/b5996004-88a5-4188-8c96-dfbd18381587 | width=100)
 
 
 # LogiReader
