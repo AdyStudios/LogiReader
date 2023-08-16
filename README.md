@@ -2,9 +2,10 @@
 ![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg?cacheSeconds=2592000)
 ![Stable](https://img.shields.io/badge/Unreleased-red.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/AdyStudios/LogiReader/blob/main/LICENSE)
+![logirobsmall](https://github.com/AdyStudios/LogiReader/assets/74962285/b5996004-88a5-4188-8c96-dfbd18381587)
 
 
-# LogiReader ![logirobsmall](https://github.com/AdyStudios/LogiReader/assets/74962285/b5996004-88a5-4188-8c96-dfbd18381587)
+# LogiReader
 
 An intuitive platform for reading Logiscool CRM Surveys.
 
