@@ -1,13 +1,14 @@
 import './App.css';
+import React from 'react';
 const json = require('./example.json')
 
 const LangHu = require('./lang/hu.json');
-//const LangEn = require('./lang/en.json');
+const LangEn = require('./lang/en.json');
 
 var currentLang = LangHu;
 
 function GenerateSectionDefualt(title, content) {
-  if(content == undefined) return;  
+  if(content === undefined) return;  
   return (
       <div className='Section'>
         <p className = 'SectionTitle'> {title} </p>
@@ -43,9 +44,11 @@ function App() {
   var trainerOne = 
   <div className = 'Section'>
     <p className = 'SectionTitle'>{currentLang.trainerAttributesText}</p>
+    <div className='Horizontal'>
     <p className='SectionContent'>{json.trainerAttributes.attributes[1]}</p>
     <p className='SectionContent'>{json.trainerAttributes.attributes[2]}</p>
     <p className='SectionContent'>{json.trainerAttributes.attributes[3]}</p>
+    </div>
   </div>;
 
 //TODO: replace "strict" with red background!!
@@ -66,8 +69,27 @@ function App() {
   var myBiggestAchievement = GenerateSectionDefualt(currentLang.openText.myBiggestAchievement, json.openText.myBiggestAchievement);
   var aboutLogiscool = GenerateSectionDefualt(currentLang.openText.aboutLogiscool, json.openText.aboutLogiscool);
 
+
   return(
+    
   <div className='App'>
+    <header className="header">
+        <h1>LogiReader</h1>
+        <div className="language-select">
+          <div
+            className="language-option"
+            /*onClick={() => changeLang('hu')}*/
+          >
+            Hungarian
+          </div>
+          <div
+            className="language-option"
+            /*onClick={() => changeLang('en')}*/
+          >
+            English
+          </div>
+        </div>
+      </header>
         {ageSec}
         {campTypeSec}
         {likethemostSec}

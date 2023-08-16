@@ -35,3 +35,27 @@ div.Horizontal{
   font-family: "CustomBFont";
   src: url("../fonts/titillium-bold.ttf") format("opentype");
 }
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.language-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.language-option {
+  cursor: pointer;
+}
+
+.language-option:hover {
+  text-decoration: underline;
+}
