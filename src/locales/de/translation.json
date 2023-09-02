@@ -1,0 +1,27 @@
+{
+  "lr": {
+    "subtitle": "Eine intuitive Plattform zum Auswerten von Logiscool CRM-Umfragen.",
+    "language": "Deutsch",
+    "content": {
+      "about": "Über mich",
+      "age": "Alter",
+      "campType": "Camp-Typ",
+      "favorite": "Favorit",
+      "biggestAchievement": "Mein größter Erfolg",
+      "favoriteActivity": "Lieblingsaktivität",
+      "knowMyLogiscool": "Über Logiscool",
+      "attributes": "Eigenschaften",
+      "trainerAttributes": "Trainer-Eigenschaften",
+      "leadTrainerAttributes": "Lead-Trainer-Eigenschaften",
+      "qualities": {
+        "title": "Qualitäten",
+        "friendly": "Freundlich",
+        "clear": "Klar",
+        "helpfulness": "Hilfsbereit",
+        "entertaining": "Unterhaltsam",
+        "coolness": "Cool",
+        "animatorSatisfaction": "Animator-Zufriedenheit"
+      }
+    }
+  }
+}

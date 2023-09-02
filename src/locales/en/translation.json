@@ -1,0 +1,27 @@
+{
+    "lr": {
+        "subtitle": "An intuitive platform for reading Logiscool CRM Surveys.",
+        "language": "English",
+        "content": {
+            "about": "About me",
+            "age": "Age",
+            "campType": "Camp-Type",
+            "favorite": "Favorite",
+            "biggestAchievement": "My biggest achievement",
+            "favoriteActivity": "Favorite activity",
+            "knowMyLogiscool": "About Logiscool",
+            "attributes": "Attributes",
+            "trainerAttributes": "Trainer-Attributes",
+            "leadTrainerAttributes": "Lead-Trainer-Attributes",
+            "qualities": {
+                "title": "Qualities",
+                "friendly": "Friendly",
+                "clear": "Clear",
+                "helpfulness": "Helpful",
+                "entertaining": "Entertaining",
+                "coolness": "Cool",
+                "animatorSatisfaction": "Animator satisfaction"
+            }
+        }
+    }
+}

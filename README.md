@@ -7,7 +7,6 @@
 <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/74962285/260978820-b5996004-88a5-4188-8c96-dfbd18381587.png" width="48">
 
 # LogiReader
-
 An intuitive platform for reading Logiscool CRM Surveys.
 
 ## How
@@ -22,5 +21,6 @@ This project was started in 23_08 to make survey reading easier, and more fun, o
 - Cool extras
 - Theme customization
 - Color coding
+
 ### Suggest Features by opening a new issue!
 And make sure to tag it as enhancement!

@@ -1,0 +1,27 @@
+{
+  "lr": {
+    "subtitle": "Intuitív platform a Logiscool CRM felmérések értékeléséhez.",
+    "language": "Madyar",
+    "content": {
+      "about": "About me",
+      "age": "Életkor",
+      "campType": "Tábor Típus",
+      "favorite": "Legjobban tetszett",
+      "biggestAchievement": "Legnagyobb eredményem",
+      "favoriteActivity": "Kedvenc szabadidős tevékenység",
+      "knowMyLogiscool": "Ismerem a MyLogiscool-t",
+      "attributes": "Tulajdonságai",
+      "trainerAttributes": "Oktató tulajdonságai",
+      "leadTrainerAttributes": "Táborvezető tulajdonságai",
+      "qualities": {
+        "title": "Tulajdonságok",
+        "friendly": "Barátságos",
+        "clear": "Érthető",
+        "helpfulness": "Segítőkész",
+        "entertaining": "Szórakoztató",
+        "coolness": "Hideg",
+        "animatorSatisfaction": "Animátor megelégedettség"
+      }
+    }
+  }
+}
