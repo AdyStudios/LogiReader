@@ -16,7 +16,7 @@ It works by taking in an excel file exported from the CRM Surveys, and creates a
 This project was started in 23_08 to make survey reading easier, and more fun, or at least not difficult.
 
 ## Features
-- Disgusting codebase
+- ~~Disgusting codebase~~
 - Fun and intuitive UI
 - Cool extras
 - Theme customization
