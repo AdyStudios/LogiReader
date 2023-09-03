@@ -1,5 +1,5 @@
 ![Awesome](https://cdn.jsdelivr.net/gh/sindresorhus/awesome@d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
-![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/Version-0.2.0-blue.svg?cacheSeconds=2592000)
 ![Stable](https://img.shields.io/badge/Unreleased-red.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/AdyStudios/LogiReader/blob/main/LICENSE)
 
