@@ -61,7 +61,7 @@ function App() {
         <div className="hero-body">
           <p className="title">LogiReader</p>
           <p className="subtitle">
-            An intuitive platform for reading Logiscool CRM Surveys.
+            <Trans i18nKey="lr.subtitle" />
           </p>
         </div>
       </section>
@@ -152,7 +152,7 @@ function App() {
                     <ul>
                       {Object.values(Content.campLeadAttributes.attributes).map(
                         (value, index) => {
-                          return value == "strict" ? (
+                          return value === "strict" ? (
                             <li
                               key={index}
                               className="has-text-danger has-text-weight-bold"
