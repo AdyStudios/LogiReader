@@ -4,7 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/AdyStudios/LogiReader/blob/main/LICENSE)
 
 
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/74962285/260978820-b5996004-88a5-4188-8c96-dfbd18381587.png" width="48">
+<img src="https://github.com/AdyStudios/LogiReader/assets/74962285/2aa8b625-2cde-4245-911f-aa6d8e95945c" width="48">
+
 
 # LogiReader
 An intuitive platform for reading Logiscool CRM Surveys.
