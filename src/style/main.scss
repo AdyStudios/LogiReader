@@ -1,0 +1,16 @@
+/**
+ * @author Felix Waßmuth
+ * @license MIT
+ * 
+ * @version 1.0.0
+ * @since 0.2.0
+ */
+
+@import 'bulma/css/bulma.css';
+
+/* Add support for equal height columns */
+.has-equal-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
