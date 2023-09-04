@@ -2,6 +2,7 @@
   "lr": {
     "subtitle": "Eine intuitive Plattform zum Auswerten von Logiscool CRM-Umfragen.",
     "language": "Deutsch",
+    "nofileUpload": "Datei-Upload wird nicht unterstützt.",
     "content": {
       "about": "Über mich",
       "age": "Alter",

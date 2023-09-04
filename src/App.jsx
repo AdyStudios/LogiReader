@@ -1,5 +1,5 @@
 /**
- * @author Felix Waßmuth
+ * @author Felix Waßmuth, Kara Ádám
  * @license MIT
  *
  * @version 1.0.0
@@ -9,15 +9,39 @@
  */
 
 import React from "react";
+import {useState} from "react";
+import * as XLSX from "xlsx";
 import "./i18n";
 import { Trans, useTranslation } from "react-i18next";
 import Content from "./example.json";
 
+
 function App() {
+
+  var parsedDataG = [];
+
+
   const { i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
+
+  const handleFileUpload = (e) => {
+    const reader = new FileReader();
+    reader.readAsBinaryString(e.target.files[0]);
+    reader.onload = (e) => {
+      const data = e.target.result;
+      const workbook = XLSX.read(data, { type: "binary" });
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
+      const parsedData = XLSX.utils.sheet_to_json(sheet);
+
+      parsedDataG = parsedData;
+      console.log(parsedDataG); //TODO: actually display tha data. I couldn't do that. You have to display for example parsedDataG[0].Data. If you get that you are king!
+    };
+  }
+
+
 
   return (
     <div className="App">
@@ -38,7 +62,7 @@ function App() {
                   className="navbar-item"
                   onClick={() => changeLanguage("hu")}
                 >
-                  Madyar
+                  Magyar
                 </span>
                 <span
                   className="navbar-item"
@@ -279,6 +303,11 @@ function App() {
           </div>
         </div>
       </div>
+      <input 
+        type="file" 
+        accept=".xlsx, .xls" 
+        onChange={handleFileUpload} 
+      />
     </div>
   );
 }
