@@ -23,5 +23,9 @@ This project was started in 23_08 to make survey reading easier, and more fun, o
 - Theme customization
 - Color coding
 
+## Thanks
+- To [Felix | D1strict](https://github.com/felix-d1strict) for correcting and improving every line of code.
+- To Spirk Marcell (saliven35 on discord) for the artwork.
+
 ### Suggest Features by opening a new issue!
 And make sure to tag it as enhancement!
