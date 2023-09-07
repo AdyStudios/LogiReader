@@ -19,7 +19,7 @@ import { Trans, useTranslation } from "react-i18next";
 
 function App() {
 
-
+  const [Content, setContent] = useState([]);
 
   const { i18n } = useTranslation();
   const changeLanguage = (lng) => {
