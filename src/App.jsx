@@ -9,16 +9,16 @@
  */
 
 import React from "react";
-import {useState} from "react";
+import {useState}from "react";
 import * as XLSX from "xlsx";
 import "./i18n";
 import { Trans, useTranslation } from "react-i18next";
-import Content from "./example.json";
+//import Content from "./example.json";
+
 
 
 function App() {
 
-  var parsedDataG = [];
 
 
   const { i18n } = useTranslation();
@@ -35,11 +35,12 @@ function App() {
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
-
-      parsedDataG = parsedData;
-      console.log(parsedDataG); //TODO: actually display tha data. I couldn't do that. You have to display for example parsedDataG[0].Data. If you get that you are king!
+  
+      setContent(parsedData);
+      console.log(Content);
     };
-  }
+  };
+  //TODO: actually display tha data. I couldn't do that. You have to display for example parsedDataG[0].Data. If you get that you are king!
 
 
 
@@ -89,6 +90,7 @@ function App() {
           </p>
         </div>
       </section>
+      {Content.length > 0 && (
       <div className="container is-fluid mt-5 mb-5">
         <div className="columns is-multiline">
           <div className="column has-equal-height">
@@ -303,6 +305,7 @@ function App() {
           </div>
         </div>
       </div>
+      )}
       <input 
         type="file" 
         accept=".xlsx, .xls" 
