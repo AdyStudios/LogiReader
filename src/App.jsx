@@ -12,7 +12,9 @@ import React from "react";
 import {useState}from "react";
 import * as XLSX from "xlsx";
 import "./i18n";
-import { Trans, useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
+import "./components/Navigation";
+import Navigation from "./components/Navigation";
 //import Content from "./example.json";
 
 
@@ -20,11 +22,6 @@ import { Trans, useTranslation } from "react-i18next";
 function App() {
 
   const [Content, setContent] = useState([]);
-
-  const { i18n } = useTranslation();
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
 
   const handleFileUpload = (e) => {
     const reader = new FileReader();
@@ -46,42 +43,7 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="navbar" role="navigation" aria-label="main navigation">
-        <div className="navbar-brand">
-          <a className="navbar-item has-text-weight-bold" href="/">
-            LogiReader
-          </a>
-        </div>
-        <div className="navbar-menu">
-          <div className="navbar-end">
-            <div className="navbar-item has-dropdown is-hoverable">
-              <span className="navbar-link">
-                <Trans i18nKey="lr.language" />
-              </span>
-              <div className="navbar-dropdown">
-                <span
-                  className="navbar-item"
-                  onClick={() => changeLanguage("hu")}
-                >
-                  Magyar
-                </span>
-                <span
-                  className="navbar-item"
-                  onClick={() => changeLanguage("en")}
-                >
-                  English
-                </span>
-                <span
-                  className="navbar-item"
-                  onClick={() => changeLanguage("de")}
-                >
-                  Deutsch
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
       <section className="hero is-primary">
         <div className="hero-body">
           <p className="title">LogiReader</p>
