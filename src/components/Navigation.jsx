@@ -33,6 +33,7 @@ const Navigation = () => {
                       : flag_de
                   }
                   alt=""
+                  loading="eager"
                 />
               </span>{" "}
               &nbsp; <Trans i18nKey="lr.language" />
@@ -45,7 +46,7 @@ const Navigation = () => {
                 onClick={() => changeLanguage("hu")}
               >
                 <span className="icon">
-                  <img src={flag_hu} alt="" />
+                  <img src={flag_hu} alt="" loading="lazy" />
                 </span>{" "}
                 &nbsp; Magyar
               </span>
@@ -56,7 +57,7 @@ const Navigation = () => {
                 onClick={() => changeLanguage("en")}
               >
                 <span className="icon">
-                  <img src={flag_gb} alt="" />
+                  <img src={flag_gb} alt="" loading="lazy" />
                 </span>{" "}
                 &nbsp; English
               </span>
@@ -67,7 +68,7 @@ const Navigation = () => {
                 onClick={() => changeLanguage("de")}
               >
                 <span className="icon">
-                  <img src={flag_de} alt="" />
+                  <img src={flag_de} alt="" loading="lazy" />
                 </span>{" "}
                 &nbsp; Deutsch
               </span>
