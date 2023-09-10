@@ -22,8 +22,14 @@
     color: $link;
   }
 
-  span.navbar-item.is-active:not(:focus):not(:hover),
-  .navbar-link.is-active:not(:focus):not(:hover) {
+  .navbar-dropdown span.navbar-item:focus,
+  .navbar-dropdown span.navbar-item:hover {
+    background-color: $white-ter;
+    color: $black;
+    cursor: pointer;
+  }
+
+  span.navbar-item.is-active:not(:focus):not(:hover) {
     background-color: transparent;
   }
 }
