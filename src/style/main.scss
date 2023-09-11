@@ -6,11 +6,30 @@
  * @since 0.2.0
  */
 
-@import 'bulma/css/bulma.css';
+@import "bulma/bulma.sass";
 
 /* Add support for equal height columns */
 .has-equal-height {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for navbar dropdowns (especially for the language selector) */
+@include from(1024px) {
+  .navbar-dropdown span.navbar-item.is-active {
+    background-color: $grey-light;
+    color: $link;
+  }
+
+  .navbar-dropdown span.navbar-item:focus,
+  .navbar-dropdown span.navbar-item:hover {
+    background-color: $white-ter;
+    color: $black;
+    cursor: pointer;
+  }
+
+  span.navbar-item.is-active:not(:focus):not(:hover) {
+    background-color: transparent;
+  }
 }
