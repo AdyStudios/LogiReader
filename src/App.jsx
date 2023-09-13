@@ -21,7 +21,8 @@ import Navigation from "./components/Navigation";
 
 function App() {
 
-  const [Content, setContent] = useState([]);
+  const [content, setContent] = useState([]);
+  const [fileUploaded, setFileUploaded] = useState(false);
 
   const handleFileUpload = (e) => {
     const reader = new FileReader();
@@ -33,13 +34,16 @@ function App() {
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
   
-      setContent(parsedData);
-      console.log(Content);
+      UseContent(parsedData);
+      setFileUploaded(true);
     };
+
+    
   };
-  //TODO: actually display tha data. I couldn't do that. You have to display for example parsedDataG[0].Data. If you get that you are king!
 
-
+  function UseContent(read){
+      setContent(read[5].Data);
+    }
 
   return (
     <div className="App">
@@ -52,7 +56,37 @@ function App() {
           </p>
         </div>
       </section>
-      {Content.length > 0 && (
+      <section className="pageSelect">
+        <div className="container">
+          <button className="button is-primary is-light is-outlined"> {/*TODO: make it work*/}
+            <Trans i18nKey="lr.prevpage" />
+          </button>
+          <button className="button is-primary is-light is-outlined"> {/*TODO: make it work*/}
+            <Trans i18nKey="lr.nextpage" />
+          </button>
+        </div>
+  
+      </section>
+      {fileUploaded ? (
+        <DataDisplay obj={content} />
+      ) : (
+        <p>Upload an Excel file to see the data.</p>
+      )}
+      <input 
+        type="file" 
+        accept=".xlsx, .xls" 
+        onChange={handleFileUpload} 
+      />
+    </div>
+  );
+}
+
+function DataDisplay({ obj }) {
+  const data = JSON.parse(obj);
+  console.log(data);
+  return (
+    <div>
+      
       <div className="container is-fluid mt-5 mb-5">
         <div className="columns is-multiline">
           <div className="column has-equal-height">
@@ -67,37 +101,37 @@ function App() {
                   <dt className="label">
                     <Trans i18nKey="lr.content.age" />
                   </dt>
-                  <dd>{Content.age}</dd>
+                  <dd>{data.age}</dd>
                 </dl>
                 <dl className="field" id="campType">
                   <dt className="label">
                     <Trans i18nKey="lr.content.campType" />
                   </dt>
-                  <dd>{Content.campType}</dd>
+                  <dd>{data.campType}</dd>
                 </dl>
                 <dl className="field" id="favorite">
                   <dt className="label">
                     <Trans i18nKey="lr.content.favorite" />
                   </dt>
-                  <dd>
-                    {Content.openText.likeTheMost
-                      ? Content.openText.likeTheMost
-                      : Content.likedTheMost}
-                  </dd>
+                  {<dd>
+                    {data.openText.likeTheMost
+                      ? data.openText.likeTheMost
+                      : data.likedTheMost}
+                    </dd>}
                 </dl>
-                {Content.openText.myBiggestAchievement ? (
+                {data.openText.myBiggestAchievement ? (
                   <dl className="field" id="myBiggestAchievement">
                     <dt className="label">
                       <Trans i18nKey="lr.content.biggestAchievement" />
                     </dt>
-                    <dd>{Content.openText.myBiggestAchievement}</dd>
+                    <dd>{data.openText.myBiggestAchievement}</dd>
                   </dl>
                 ) : null}
                 <dl className="field" id="favoriteActivity">
                   <dt className="label">
                     <Trans i18nKey="lr.content.favoriteActivity" />
                   </dt>
-                  <dd>{Content.favoriteLeasureActivity}</dd>
+                  <dd>{data.favoriteLeasureActivity}</dd>
                 </dl>
                 <dl className="field" id="knowMyLogiscool">
                   <dt className="label">
@@ -105,7 +139,7 @@ function App() {
                       <Trans i18nKey="lr.content.knowMyLogiscool" />
                     </label>
                   </dt>
-                  <dd>{Content.knowMyLogiscool}</dd>
+                  <dd>{data.knowMyLogiscool}</dd>
                 </dl>
               </div>
             </div>
@@ -124,7 +158,7 @@ function App() {
                   </dt>
                   <dd>
                     <ul>
-                      {Object.values(Content.trainerAttributes.attributes).map(
+                      {Object.values(data.trainerAttributes.attributes).map(
                         (value, index) => {
                           return <li key={index}>{value}</li>;
                         }
@@ -138,7 +172,7 @@ function App() {
                   </dt>
                   <dd>
                     <ul>
-                      {Object.values(Content.campLeadAttributes.attributes).map(
+                      {Object.values(data.campLeadAttributes.attributes).map(
                         (value, index) => {
                           return value === "strict" ? (
                             <li
@@ -172,14 +206,14 @@ function App() {
                   </dt>
                   <progress
                     className={
-                      Content.trainerQuality.friendly > 1
+                      data.trainerQuality.friendly > 1
                         ? "progress is-success"
                         : "progress is-danger"
                     }
-                    value={Content.trainerQuality.friendly}
+                    value={data.trainerQuality.friendly}
                     max="5"
                   >
-                    {Content.trainerQuality.friendly}
+                    {data.trainerQuality.friendly}
                   </progress>
                 </dl>
                 <dl className="field">
@@ -188,14 +222,14 @@ function App() {
                   </dt>
                   <progress
                     className={
-                      Content.trainerQuality.clear > 1
+                      data.trainerQuality.clear > 1
                         ? "progress is-success"
                         : "progress is-danger"
                     }
-                    value={Content.trainerQuality.clear}
+                    value={data.trainerQuality.clear}
                     max="5"
                   >
-                    {Content.trainerQuality.clear}
+                    {data.trainerQuality.clear}
                   </progress>
                 </dl>
                 <dl className="field">
@@ -204,14 +238,14 @@ function App() {
                   </dt>
                   <progress
                     className={
-                      Content.trainerQuality.helpful > 1
+                      data.trainerQuality.helpful > 1
                         ? "progress is-success"
                         : "progress is-danger"
                     }
-                    value={Content.trainerQuality.helpful}
+                    value={data.trainerQuality.helpful}
                     max="5"
                   >
-                    {Content.trainerQuality.helpful}
+                    {data.trainerQuality.helpful}
                   </progress>
                 </dl>
                 <dl className="field">
@@ -220,14 +254,14 @@ function App() {
                   </dt>
                   <progress
                     className={
-                      Content.trainerQuality.entertaining > 1
+                      data.trainerQuality.entertaining > 1
                         ? "progress is-success"
                         : "progress is-danger"
                     }
-                    value={Content.trainerQuality.entertaining}
+                    value={data.trainerQuality.entertaining}
                     max="5"
                   >
-                    {Content.trainerQuality.entertaining}
+                    {data.trainerQuality.entertaining}
                   </progress>
                 </dl>
                 <dl className="field">
@@ -236,14 +270,14 @@ function App() {
                   </dt>
                   <progress
                     className={
-                      Content.trainerQuality.cool > 1
+                      data.trainerQuality.cool > 1
                         ? "progress is-success"
                         : "progress is-danger"
                     }
-                    value={Content.trainerQuality.cool}
+                    value={data.trainerQuality.cool}
                     max="5"
                   >
-                    {Content.trainerQuality.cool}
+                    {data.trainerQuality.cool}
                   </progress>
                 </dl>
                 <dl className="field">
@@ -252,14 +286,14 @@ function App() {
                   </dt>
                   <progress
                     className={
-                      Content.animatorsSatisfaction > 1
+                      data.animatorsSatisfaction > 1
                         ? "progress is-success"
                         : "progress is-danger"
                     }
-                    value={Content.animatorsSatisfaction}
+                    value={data.animatorsSatisfaction}
                     max="5"
                   >
-                    {Content.animatorsSatisfaction}
+                    {data.animatorsSatisfaction}
                   </progress>
                 </dl>
               </div>
@@ -267,12 +301,6 @@ function App() {
           </div>
         </div>
       </div>
-      )}
-      <input 
-        type="file" 
-        accept=".xlsx, .xls" 
-        onChange={handleFileUpload} 
-      />
     </div>
   );
 }

@@ -3,6 +3,8 @@
         "subtitle": "An intuitive platform for reading Logiscool CRM Surveys.",
         "language": "English",
         "nofileUpload": "No file uploaded",
+        "nextpage": "Next page",
+        "prevpage": "Previous page",
         "content": {
             "about": "About me",
             "age": "Age",
