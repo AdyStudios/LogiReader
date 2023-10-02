@@ -9,7 +9,7 @@
  */
 
 import React from "react";
-import {useState}from "react";
+import { useState } from 'react';
 import * as XLSX from "xlsx";
 import "./i18n";
 import { Trans } from "react-i18next";
@@ -23,6 +23,7 @@ function App() {
 
   const [content, setContent] = useState([]);
   const [fileUploaded, setFileUploaded] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const handleFileUpload = (e) => {
     const reader = new FileReader();
@@ -33,7 +34,6 @@ function App() {
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
-  
       UseContent(parsedData);
       setFileUploaded(true);
     };
@@ -44,6 +44,20 @@ function App() {
   function UseContent(read){
       setContent(read[5].Data);
     }
+
+    const handlePrevPage = () => {
+      if (currentPage > 0) {
+        setCurrentPage(currentPage - 1);
+      }
+      console.log(currentPage);
+    };
+  
+    const handleNextPage = () => {
+      if (currentPage < content.length - 1) {
+        setCurrentPage(currentPage + 1);
+      }
+      console.log(currentPage);
+    };
 
   return (
     <div className="App">
@@ -58,10 +72,18 @@ function App() {
       </section>
       <section className="pageSelect">
         <div className="container">
-          <button className="button is-primary is-light is-outlined"> {/*TODO: make it work*/}
+        <button
+            className="button is-primary is-light is-outlined"
+            onClick={handlePrevPage}
+            disabled={currentPage === 0}
+          >
             <Trans i18nKey="lr.prevpage" />
           </button>
-          <button className="button is-primary is-light is-outlined"> {/*TODO: make it work*/}
+          <button
+            className="button is-primary is-light is-outlined"
+            onClick={handleNextPage}
+            disabled={currentPage === content.length - 1}
+          >
             <Trans i18nKey="lr.nextpage" />
           </button>
         </div>
@@ -82,8 +104,8 @@ function App() {
 }
 
 function DataDisplay({ obj }) {
+  if(obj === undefined) return null;
   const data = JSON.parse(obj);
-  console.log(data);
   return (
     <div>
       
