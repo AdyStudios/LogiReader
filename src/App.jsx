@@ -22,6 +22,7 @@ import Navigation from "./components/Navigation";
 function App() {
 
   const [content, setContent] = useState([]);
+  const [bigContent, setBigContent] = useState([]);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -34,20 +35,27 @@ function App() {
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
-      UseContent(parsedData);
+      UseContent(parsedData, 5);
+      handleSetPage(5);
       setFileUploaded(true);
+
     };
 
     
   };
 
-  function UseContent(read){
-      setContent(read[5].Data);
+  function UseContent(read, pg){
+      setBigContent(read);
+      setContent(read[pg].Data);
     }
 
+    const handleSetPage = (pg) => {
+      setCurrentPage(pg)
+    } 
     const handlePrevPage = () => {
       if (currentPage > 0) {
         setCurrentPage(currentPage - 1);
+        UseContent(bigContent, currentPage);
       }
       console.log(currentPage);
     };
@@ -55,9 +63,14 @@ function App() {
     const handleNextPage = () => {
       if (currentPage < content.length - 1) {
         setCurrentPage(currentPage + 1);
+        UseContent(bigContent, currentPage);
       }
       console.log(currentPage);
     };
+
+    const getCurrentPage = () => {
+      return currentPage;
+    }
 
   return (
     <div className="App">
@@ -101,14 +114,18 @@ function App() {
       />
     </div>
   );
-}
 
 function DataDisplay({ obj }) {
   if(obj === undefined) return null;
   const data = JSON.parse(obj);
+
   return (
     <div>
-      
+      <div className="pagenum">
+        <p className="card-header-title">
+          {getCurrentPage()}.<Trans i18nKey="lr.currentPage" />
+        </p>
+      </div>
       <div className="container is-fluid mt-5 mb-5">
         <div className="columns is-multiline">
           <div className="column has-equal-height">
@@ -325,6 +342,7 @@ function DataDisplay({ obj }) {
       </div>
     </div>
   );
+}
 }
 
 export default App;

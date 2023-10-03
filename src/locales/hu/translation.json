@@ -1,10 +1,11 @@
 {
   "lr": {
-    "subtitle": "Intuitív platform a Logiscool CRM felmérések értékeléséhez.",
+    "subtitle": "Intuitív platform a Logiscool CRM felmérések átnézéséhez.",
     "language": "Magyar",
     "nofileUpload": "Nincs feltöltött fájl.",
     "nextpage": "Következő oldal",
     "prevpage": "Előző oldal",
+    "currentPage": "oldal",
     "content": {
       "about": "Névjegy",
       "age": "Életkor",
