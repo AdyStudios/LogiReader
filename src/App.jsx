@@ -35,10 +35,14 @@ function App() {
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
       const parsedData = XLSX.utils.sheet_to_json(sheet);
-      UseContent(parsedData, 5);
-      handleSetPage(5);
-      setFileUploaded(true);
-
+      const firstRow = testForFirstDataRow(parsedData);
+      if (firstRow === null) {
+        console.log("No real data in file");
+      } else {
+        UseContent(parsedData, firstRow);
+        handleSetPage(firstRow);
+        setFileUploaded(true);
+      }
     };
 
     
@@ -70,6 +74,24 @@ function App() {
 
     const getCurrentPage = () => {
       return currentPage;
+    }
+
+    function testForFirstDataRow(parsedData) {
+      // Define a function to check if a row has readable data
+      const hasReadableData = (row) => {
+        // Check if any cell in the row contains data (you can adjust this condition as needed)
+        return Object.values(row).some((cell) => cell !== null && cell !== undefined && cell !== "");
+      };
+    
+      // Find the first row with readable data
+      for (let i = 0; i < parsedData.length; i++) {
+        if (hasReadableData(parsedData[i])) {
+          return i; // Return the index of the first row with readable data
+        }
+      }
+    
+      // If no readable data is found, return null
+      return null;
     }
 
   return (
