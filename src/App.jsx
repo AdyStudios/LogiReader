@@ -15,6 +15,7 @@ import "./i18n";
 import { Trans } from "react-i18next";
 import "./components/Navigation";
 import Navigation from "./components/Navigation";
+//ez egy fontos kód részlet
 //import Content from "./example.json";
 
 
