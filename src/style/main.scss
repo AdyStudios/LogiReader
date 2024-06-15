@@ -49,3 +49,10 @@ body{
   color: rgb(255, 241, 225);
   /*make a gradient as the background with modern, and clean colors*/
   background: linear-gradient(135deg, #029bde, #00d1b2);}
+
+.view-source-button{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}

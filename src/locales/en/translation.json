@@ -3,10 +3,13 @@
         "activatestrict": "Activate stirct counter",
         "deactivatestrict": "Deactivate strict counter",
         "subtitle": "An intuitive platform for reading Logiscool CRM Surveys.",
+        "madeby": "made by",
+        "thanks": "Thanks to:",
         "language": "English",
         "nofileUpload": "No file uploaded",
         "nextpage": "Next page",
         "prevpage": "Previous page",
+        "currentPage": " page",
         "content": {
             "about": "About me",
             "age": "Age",

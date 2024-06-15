@@ -15,6 +15,10 @@ import { Trans } from "react-i18next";
 import "./components/Navigation";
 import Navigation from "./components/Navigation";
 
+
+import logo from "./logo.png";
+import githubIcon from "./mark-github-24.svg";
+
 function App() {
 
   const [content, setContent] = useState([]);
@@ -122,10 +126,30 @@ function App() {
       <Navigation />
       <section className="hero is-primary">
         <div className="hero-body">
+          <div className="logo-title-container">
+          <img
+              src={logo}
+              alt="Logo"
+              className="logo"
+              style={{ maxWidth: "100px", marginRight: "10px" }} // Adjust the maxWidth and other styles as needed
+            />
           <p className="title">LogiReader</p>
           <p className="subtitle">
             <Trans i18nKey="lr.subtitle" />
           </p>
+          
+          <p><Trans i18nKey="lr.madeby"/></p>
+          <p>/sethome bohém productions</p>
+          <p className="contributions"><br></br><Trans i18nKey="lr.thanks"/></p><p className="contributors">Felix - D1strict<br/>Sprik M.</p>
+        </div>
+        <a
+          href="https://github.com/AdyStudios/LogiReader"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="button is-primary is-dark view-source-button"
+        >
+          <img src={githubIcon} alt="GitHub Icon" style={{ width: "24px" }} />
+        </a>
         </div>
       </section>
       <div className="strict-counter">
