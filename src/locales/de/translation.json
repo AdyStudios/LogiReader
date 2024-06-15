@@ -1,5 +1,7 @@
 {
   "lr": {
+    "activatestrict": "Aktivieren Sie den strikten Zähler",
+    "deactivatestrict": "Deaktivieren Sie den strikten Zähler",
     "subtitle": "Eine intuitive Plattform zum Auswerten von Logiscool CRM-Umfragen.",
     "language": "Deutsch",
     "nofileUpload": "Datei-Upload wird nicht unterstützt.",

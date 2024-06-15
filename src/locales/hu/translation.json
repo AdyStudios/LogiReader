@@ -1,5 +1,7 @@
 {
   "lr": {
+    "activatestrict": "Strict számláló aktiviálása",
+    "deactivatestrict": "Strict számláló deaktiválása",
     "subtitle": "Intuitív platform a Logiscool CRM felmérések átnézéséhez.",
     "language": "Magyar",
     "nofileUpload": "Nincs feltöltött fájl.",

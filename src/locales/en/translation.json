@@ -1,5 +1,7 @@
 {
     "lr": {
+        "activatestrict": "Activate stirct counter",
+        "deactivatestrict": "Deactivate strict counter",
         "subtitle": "An intuitive platform for reading Logiscool CRM Surveys.",
         "language": "English",
         "nofileUpload": "No file uploaded",
