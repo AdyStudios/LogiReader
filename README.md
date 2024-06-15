@@ -20,10 +20,10 @@ This project was started in 23_08 to make survey reading easier, and more fun, o
 - ~~Disgusting codebase~~
 - Fun and intuitive UI
 - Cool extras
-- Theme customization
+  - Strict counter
+- Multi-lanuage
 - Color coding
-## TODOs
-- Rewrite in flutter
+
 ## Thanks
 - To [Felix | D1strict](https://github.com/felix-d1strict) for correcting and improving every line of code.
 - To Spirk Marcell (saliven35 on discord) for the artwork.
