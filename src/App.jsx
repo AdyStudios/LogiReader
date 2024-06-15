@@ -352,7 +352,7 @@ function App() {
                   </dl>
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.helpfulness" />:: {data.trainerQuality?.helpful}
+                      <Trans i18nKey="lr.content.qualities.helpfulness" />: {data.trainerQuality?.helpful}
                     </dt>
                     <progress
                       className={
