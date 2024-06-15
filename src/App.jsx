@@ -320,7 +320,7 @@ function App() {
                 <div className="card-content">
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.friendly" />
+                      <Trans i18nKey="lr.content.qualities.friendly"/>: {data.trainerQuality?.friendly}
                     </dt>
                     <progress
                       className={
@@ -336,7 +336,7 @@ function App() {
                   </dl>
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.clear" />
+                      <Trans i18nKey="lr.content.qualities.clear" />: {data.trainerQuality?.clear}
                     </dt>
                     <progress
                       className={
@@ -352,7 +352,7 @@ function App() {
                   </dl>
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.helpfulness" />
+                      <Trans i18nKey="lr.content.qualities.helpfulness" />:: {data.trainerQuality?.helpful}
                     </dt>
                     <progress
                       className={
@@ -368,7 +368,7 @@ function App() {
                   </dl>
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.entertaining" />
+                      <Trans i18nKey="lr.content.qualities.entertaining" />: {data.trainerQuality?.entertaining}
                     </dt>
                     <progress
                       className={
@@ -384,7 +384,7 @@ function App() {
                   </dl>
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.coolness" />
+                      <Trans i18nKey="lr.content.qualities.coolness" />: {data.trainerQuality?.cool}
                     </dt>
                     <progress
                       className={
@@ -400,7 +400,7 @@ function App() {
                   </dl>
                   <dl className="field">
                     <dt className="label">
-                      <Trans i18nKey="lr.content.qualities.animatorSatisfaction" />
+                      <Trans i18nKey="lr.content.qualities.animatorSatisfaction" />: {data.animatorsSatisfaction}
                     </dt>
                     <progress
                       className={
