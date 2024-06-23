@@ -25,7 +25,7 @@ function App() {
   const [bigContent, setBigContent] = useState([]);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-  const [strictCount, setStrictCount] = useState(0);
+  const [strictCounts, setStrictCounts] = useState({});
   const [viewedPages, setViewedPages] = useState(new Set());
   const [isStrictCounterActive, setIsStrictCounterActive] = useState(false);
 
@@ -40,6 +40,7 @@ function App() {
       const parsedData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
   
       const jsonData = parsedData.map((row) => ({
+        groupid: row["Csoport"],
         age: row["Data Age"],
         campType: row["Data Camp Type"],
         favoriteLeasureActivity: row["Data Favorite Leasure Activity"],
@@ -86,18 +87,25 @@ function App() {
   function UseContent(read, pg) {
     setBigContent(read);
     setContent(read[pg]);
-    
+
     if (!viewedPages.has(pg)) {
-      // Ensure attributes are in an array before using includes
-      console.log(read[pg]?.campLeadAttributes?.attributes);
       const leadAttributes = read[pg]?.campLeadAttributes?.attributes;
-      for(let key in leadAttributes) {
+      const groupid = read[pg]?.groupid;
+      let strictCount = 0;
+
+      for (let key in leadAttributes) {
         if (leadAttributes[key] === "strict") {
-          setStrictCount(prevCount => prevCount + 1);
+          strictCount += 1;
         }
       }
+
+      setStrictCounts((prevCounts) => ({
+        ...prevCounts,
+        [groupid]: (prevCounts[groupid] || 0) + strictCount,
+      }));
+
       // Mark the page as viewed
-      setViewedPages(prevPages => new Set(prevPages).add(pg));
+      setViewedPages((prevPages) => new Set(prevPages).add(pg));
     }
   }
 
@@ -164,7 +172,7 @@ function App() {
           
           <p><Trans i18nKey="lr.madeby"/></p>
           <p>/sethome bohém productions</p>
-          <p className="contributions"><br></br><Trans i18nKey="lr.thanks"/></p><p className="contributors">Felix - D1strict<br/>Sprik M.</p>
+          <p className="contributions"><br></br><Trans i18nKey="lr.thanks"/></p><p className="contributors">Felix - D1strict<br/>Spirk M.</p>
         </div>
         <a
           href="https://github.com/AdyStudios/LogiReader"
@@ -177,7 +185,12 @@ function App() {
         </div>
       </section>
       <div className="strict-counter">
-        {isStrictCounterActive && <p>Strict Counter: {strictCount}</p>}
+        {isStrictCounterActive && (
+          <p>
+            Strict Counter:{" "}
+            {strictCounts[content.groupid] ? strictCounts[content.groupid] : 0} for {content.groupid}
+          </p>
+        )}
       </div>
       <div className="container">
         <button
@@ -231,6 +244,11 @@ function App() {
             {getCurrentPage()}.<Trans i18nKey="lr.currentPage" />
           </p>
         </div>
+        <div className="groupid">
+        <p className="card-header-title">
+        <Trans i18nKey="lr.groupId" />: {data.groupid}
+        </p>
+      </div>
         <div className="container is-fluid mt-5 mb-5">
           <div className="columns is-multiline">
             <div className="column has-equal-height">
