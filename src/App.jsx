@@ -37,21 +37,45 @@ function App() {
       const workbook = XLSX.read(data, { type: "binary" });
       const sheetName = workbook.SheetNames[0];
       const sheet = workbook.Sheets[sheetName];
-      const parsedData = XLSX.utils.sheet_to_json(sheet);
+      const parsedData = XLSX.utils.sheet_to_json(sheet, { defval: "" });
+  
+      const jsonData = parsedData.map((row) => ({
+        age: row["Data Age"],
+        campType: row["Data Camp Type"],
+        favoriteLeasureActivity: row["Data Favorite Leasure Activity"],
+        knowMyLogiscool: row["Data Know My Logiscool"],
+        openText: {
+          likeTheMost: row["Data Open Text Like The Most"],
+          myBiggestAchievement: row["Data Open Text My Biggest Achievement"],
+        },
+        trainerAttributes: {
+          attributes: {
+            1: row["Data Camp Lead Attributes Attributes 1"],
+            2: row["Data Camp Lead Attributes Attributes 2"],
+            3: row["Data Camp Lead Attributes Attributes 3"],
+          },
+        },
+        trainerQuality: {
+          friendly: row["Data Trainer Quality Friendly"],
+          clear: row["Data Trainer Quality Clear"],
+          helpful: row["Data Trainer Quality Helpful"],
+          entertaining: row["Data Trainer Quality Entertaining"],
+          cool: row["Data Trainer Quality Cool"],
+        },
+        animatorsSatisfaction: row["Data Animators Satisfaction"],
+        campLeadAttributes: {
+          attributes: {
+            1: row["Data Camp Lead Attributes Attributes 1"],
+            2: row["Data Camp Lead Attributes Attributes 2"],
+            3: row["Data Camp Lead Attributes Attributes 3"],
+          },
+        },
+      }));
+  
       const firstRow = testForFirstDataRow(parsedData);
       if (firstRow === null) {
         console.log("No real data in file");
       } else {
-        const jsonData = parsedData.map(row => {
-          if (row.Data) {
-            try {
-              return JSON.parse(row.Data);
-            } catch (e) {
-              console.error("Invalid JSON data in row", row);
-            }
-          }
-          return null;
-        }).filter(row => row !== null);
         UseContent(jsonData, firstRow);
         handleSetPage(firstRow);
         setFileUploaded(true);
