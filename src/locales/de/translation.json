@@ -6,6 +6,7 @@
     "madeby": "Erstellt von",
     "thanks": "Dank:",
     "groupId": "Gruppen-ID",
+    "tipofday": "Tipp des Tages",
     "language": "Deutsch",
     "nofileUpload": "Datei-Upload wird nicht unterstützt.",
     "nextpage": "Nächste Seite",
@@ -31,6 +32,10 @@
         "coolness": "Cool",
         "animatorSatisfaction": "Animator-Zufriedenheit"
       }
-    }
+    },
+    "tipps":{
+            "tipp1": "Wenn du während der Abenteuer der Woche mit dem Hauptboss namens Nándor in Kontakt kommst, versuche, so schnell wie möglich alle 'Kakaoschnecke'-Gegenstände aus deinem Inventar zu entfernen oder zu zerstören, da der Boss dadurch spielverändernde Buff-Effekte erhalten kann.",
+            "tipp2": "Stellen Sie sicher, unbenutzte Strandkarszalags zu lagern...🤜🏻🔗 Sie könnten nächsten Sommer nützlich sein 💡✨"
+        }
   }
 }

@@ -6,6 +6,7 @@
         "madeby": "made by",
         "thanks": "Thanks to:",
         "groupId": "Group ID",
+        "tipofday": "Tip of the day",
         "language": "English",
         "nofileUpload": "No file uploaded",
         "nextpage": "Next page",
@@ -31,6 +32,10 @@
                 "coolness": "Cool",
                 "animatorSatisfaction": "Animator satisfaction"
             }
+        },
+        "tipps":{
+            "tipp1": "If you encounter the main boss named Nándor during the week's adventures 🎮, try to remove or destroy all 'Cocoa Roll' items from your inventory as soon as possible 🍫⚠️, as the boss can gain game-changing buff effects from them. 🛡️🔥",
+            "tipp2": "Be sure to store unused strand wristbands... 🤜🏻🔗 They might come in handy next summer 💡"
         }
     }
 }

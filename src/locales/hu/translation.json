@@ -6,6 +6,7 @@
     "madeby": "készítette",
     "thanks": "Köszönet:",
     "groupId": "Csoport id",
+    "tipofday": "Napi tipp",
     "language": "Magyar",
     "nofileUpload": "Nincs feltöltött fájl.",
     "nextpage": "Következő oldal",
@@ -31,6 +32,10 @@
         "coolness": "Hideg",
         "animatorSatisfaction": "Animátor megelégedettség"
       }
-    }
+    },
+    "tipps":{
+            "tipp1": "Ha Nándor nevű főboss-szal kerülsz kontaktusba a hét kalandjai során 🎮, akkor az inventorydból minél hamarabb próbálj minden 'Kakaóscsiga' itemet eltünteni vagy megsemmisíteni 🍫⚠️, mivel sorsfordító buff effektekhez juthat így a főgonosz. 🛡️🔥",
+            "tipp2": "Győződj meg róla, hogy tárolod a fel nem használt strand karszalagokat...🤜🏻🔗 Jövő nyáron még jól jöhetnek 💡✨"
+        }
   }
 }

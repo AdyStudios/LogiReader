@@ -9,6 +9,7 @@
  */
 
 import React, { useState } from "react";
+import { useEffect } from "react";
 import * as XLSX from "xlsx";
 import "./i18n";
 import { Trans } from "react-i18next";
@@ -19,6 +20,11 @@ import Navigation from "./components/Navigation";
 import logo from "./logo.png";
 import githubIcon from "./mark-github-24.svg";
 
+const tips = [
+  <Trans i18nKey="lr.tipps.tipp1" />,
+  <Trans i18nKey="lr.tipps.tipp2" />,
+];
+
 function App() {
 
   const [content, setContent] = useState([]);
@@ -28,6 +34,7 @@ function App() {
   const [strictCounts, setStrictCounts] = useState({});
   const [viewedPages, setViewedPages] = useState(new Set());
   const [isStrictCounterActive, setIsStrictCounterActive] = useState(false);
+  const [tipOfTheDay, setTipOfTheDay] = useState("");
 
   const handleFileUpload = (e) => {
     const reader = new FileReader();
@@ -135,21 +142,39 @@ function App() {
     return currentPage;
   };
 
+  const selectRandomTip = () => {
+    const randomIndex = Math.floor(Math.random() * tips.length);
+    setTipOfTheDay(tips[randomIndex]);
+  };
+
+  function TipOfTheDay({ tip }) {
+    return (
+      <section className="tip-of-the-day">
+        <div className="container">
+          <div className="notification is-primary">
+            <button className="delete" onClick={() => document.querySelector('.tip-of-the-day').style.display='none'}></button>
+            <strong><Trans i18nKey="lr.tipofday"/></strong>: {tip}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  useEffect(() => {
+    selectRandomTip();
+  }, []);
+
   function testForFirstDataRow(parsedData) {
-    // Define a function to check if a row has readable data
     const hasReadableData = (row) => {
-      // Check if any cell in the row contains data (you can adjust this condition as needed)
       return Object.values(row).some((cell) => cell !== null && cell !== undefined && cell !== "");
     };
 
-    // Find the first row with readable data
     for (let i = 0; i < parsedData.length; i++) {
       if (hasReadableData(parsedData[i])) {
-        return i; // Return the index of the first row with readable data
+        return i; 
       }
     }
 
-    // If no readable data is found, return null
     return null;
   }
 
@@ -163,7 +188,7 @@ function App() {
               src={logo}
               alt="Logo"
               className="logo"
-              style={{ maxWidth: "100px", marginRight: "10px" }} // Adjust the maxWidth and other styles as needed
+              style={{ maxWidth: "100px", marginRight: "10px" }} 
             />
           <p className="title">LogiReader</p>
           <p className="subtitle">
@@ -184,6 +209,7 @@ function App() {
         </a>
         </div>
       </section>
+      <TipOfTheDay tip={tipOfTheDay} />
       <div className="strict-counter">
         {isStrictCounterActive && (
           <p>
@@ -235,7 +261,7 @@ function App() {
   function DataDisplay({ obj }) {
     if (!obj) return null;
 
-    const data = obj; // Directly use the object
+    const data = obj;
 
     return (
       <div>
@@ -430,8 +456,8 @@ function App() {
                     </dt>
                     <progress
                       className={
-                        data.trainerQuality?.cool > 1
-                          ? "progress is-success"
+                        data.trainerQuality?.cool > 2
+                          ? "progress is-info"
                           : "progress is-danger"
                       }
                       value={data.trainerQuality?.cool}

@@ -1,0 +1,127 @@
+// minecraft-theme.scss
+@import "bulma/bulma.sass";
+// Variables for colors
+$background-color: #2b2b2b; // Dark background color
+$text-color: #ffffff; // White text
+$button-bg-color: #2c2c2c; // Dark gray button background
+$button-hover-color: #444444; // Darker hover color
+$card-bg-color: #444444; // Dark gray card background
+$progress-bg-color: #555555; // Dark gray background for progress bar
+$progress-value-color: #4caf50; // Green progress color
+
+
+.has-equal-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Fix for navbar dropdowns (especially for the language selector) */
+  @include from(1024px) {
+    .navbar-dropdown span.navbar-item.is-active {
+      background-color: $grey-light;
+      color: $link;
+    }
+  
+    .navbar-dropdown span.navbar-item:focus,
+    .navbar-dropdown span.navbar-item:hover {
+      background-color: $white-ter;
+      color: $black;
+      cursor: pointer;
+    }
+  
+    span.navbar-item.is-active:not(:focus):not(:hover) {
+      background-color: transparent;
+    }
+  }
+// Body and background
+body {
+  font-family: 'Minecraft', Arial, sans-serif; // Use Minecraft-style font if available
+  background-color: $background-color;
+  color: $text-color;
+}
+
+// Navigation bar
+.navbar {
+  background-color: #333333; // Dark gray background
+  color: $text-color;
+}
+
+// Hero section
+.hero {
+  background-color: #3a3a3a; // Slightly lighter dark background
+  color: $text-color;
+}
+
+// Buttons
+.button {
+  background-color: $button-bg-color;
+  color: $text-color;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+// Cards
+.card {
+  background-color: $card-bg-color;
+  color: $text-color;
+}
+
+// Progress bars
+.progress {
+  height: 20px; // Height of progress bars
+  background-color: $progress-bg-color;
+
+  &::-webkit-progress-bar {
+    background-color: $progress-bg-color; // Dark gray background for progress bar
+  }
+
+  &::-webkit-progress-value {
+    background-color: $progress-value-color; // Green progress color
+  }
+}
+.strict-counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(255, 241, 225);
+    /*make a gradient as the background with modern, and clean colors*/
+    background: linear-gradient(135deg, #029bde, #00d1b2);}
+  
+  .view-source-button{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+  }
+  
+  .tip-of-the-day {
+    margin: 20px 0;
+  }
+  
+  .notification {
+    position: relative;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #209cee;
+    color: #fff;
+  }
+  
+  .notification .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+
+// Additional styles specific to Minecraft theme can be added as needed
