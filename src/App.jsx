@@ -58,9 +58,9 @@ function App() {
         },
         trainerAttributes: {
           attributes: {
-            1: row["Data Camp Lead Attributes Attributes 1"],
-            2: row["Data Camp Lead Attributes Attributes 2"],
-            3: row["Data Camp Lead Attributes Attributes 3"],
+            1: row["Data Trainer Attributes Attributes 1"],
+            2: row["Data Trainer Attributes Attributes 2"],
+            3: row["Data Trainer Attributes Attributes 3"],
           },
         },
         trainerQuality: {
