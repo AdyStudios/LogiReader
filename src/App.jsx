@@ -48,13 +48,17 @@ function App() {
   
       const jsonData = parsedData.map((row) => ({
         groupid: row["Csoport"],
+        studentName: row["Személy"],
         age: row["Data Age"],
         campType: row["Data Camp Type"],
         favoriteLeasureActivity: row["Data Favorite Leasure Activity"],
         knowMyLogiscool: row["Data Know My Logiscool"],
         openText: {
           likeTheMost: row["Data Open Text Like The Most"],
+          notLiked: row["Data Not Liked"],
           myBiggestAchievement: row["Data Open Text My Biggest Achievement"],
+          openTextLSC: row["Data Open Text About Logiscool"],
+          openLikedTheLeast: row["Data Open Text Like The Least"]
         },
         trainerAttributes: {
           attributes: {
@@ -275,6 +279,11 @@ function App() {
         <Trans i18nKey="lr.groupId" />: {data.groupid}
         </p>
       </div>
+      <div className="studentName">
+        <p className="card-header-title">
+        <Trans i18nKey="lr.studentName" />: {data.studentName}
+        </p>
+      </div>
         <div className="container is-fluid mt-5 mb-5">
           <div className="columns is-multiline">
             <div className="column has-equal-height">
@@ -307,12 +316,40 @@ function App() {
                         : data.likedTheMost}
                     </dd>
                   </dl>
+                  <dl className="field" id="notfavorite">
+                    <dt className="label">
+                      <Trans i18nKey="lr.content.notfavorite" />
+                    </dt>
+                    <dd>
+                      {data.openText?.notLiked
+                        ? data.openText.notLiked
+                        : data.likedTheMost}
+                    </dd>
+                  </dl>
+                  <dl className="field" id="openLikedTheLeast">
+                    <dt className="label">
+                      <Trans i18nKey="lr.content.openLikedTheLeast" />
+                    </dt>
+                    <dd>
+                      {data.openText?.openLikedTheLeast
+                        ? data.openText.openLikedTheLeast
+                        : data.likedTheMost}
+                    </dd>
+                  </dl>
                   {data.openText?.myBiggestAchievement ? (
                     <dl className="field" id="myBiggestAchievement">
                       <dt className="label">
                         <Trans i18nKey="lr.content.biggestAchievement" />
                       </dt>
                       <dd>{data.openText.myBiggestAchievement}</dd>
+                    </dl>
+                  ) : null}
+                  {data.openText?.openTextLSC ? (
+                    <dl className="field" id="openTextLsc">
+                      <dt className="label">
+                        <Trans i18nKey="lr.content.openTextLsc" />
+                      </dt>
+                      <dd>{data.openText.openTextLSC}</dd>
                     </dl>
                   ) : null}
                   <dl className="field" id="favoriteActivity">
