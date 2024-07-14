@@ -12,6 +12,7 @@ An intuitive platform for reading Logiscool CRM Surveys.
 
 ## How
 It works by taking in an excel file exported from the CRM Surveys, and creates a user-frinedly GUI, for easy reading.
+Here's an example file, to test with: [ujtesztfajl.xlsx](https://github.com/user-attachments/files/16228440/ujtesztfajl.xlsx)
 
 ## Why
 This project was started in 23_08 to make survey reading easier, and more fun, or at least not difficult.
