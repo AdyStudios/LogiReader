@@ -22,7 +22,7 @@ This project was started in 23_08 to make survey reading easier, and more fun, o
 - Fun and intuitive UI
 - Cool extras
   - Strict counter
-- Multi-lanuage
+- Multi-language
 - Color coding
 
 ## Thanks
